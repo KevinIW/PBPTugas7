@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tugaspbp7/screens/shoplist_form.dart';
+import 'package:tugaspbp7/widgets/left_drawer.dart';
+import 'package:tugaspbp7/widgets/shop_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -14,11 +17,13 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Tugas PBP',
+          'PBP Shop',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
       ),
+      drawer: const LeftDrawer(),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(
@@ -69,11 +74,7 @@ class MyHomePage extends StatelessWidget {
 // used by the build method of the State. Fields in a Widget subclass are
 // always marked "final".
 
-class ShopItem {
-  final String name;
-  final IconData icon;
-  ShopItem(this.name, this.icon);
-}
+
 
 class ShopCard extends StatelessWidget {
   final ShopItem item;
@@ -105,7 +106,14 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          if (item.name == "Tambah Item") {
+            // xxx
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ShopFormPage()));
+          }
         },
+
         child: Container(
           // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
