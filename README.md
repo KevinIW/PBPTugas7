@@ -671,3 +671,86 @@ class LeftDrawer extends StatelessWidget {
 
 
 </details>
+
+
+<details>
+     <summary>Tugas 9 </summary>
+
+1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Kita  dapat melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Hal tersebut tidak lebih baik jika membuat sebuah project yang membutuhkan data yang sangat banyak. 
+
+Dengan kata lain, pemilihan untuk membuat model atau tidak sebaiknya didasarkan pada kebutuhan spesifik dan kompleksitas tugas yang ingin dilakukan terhadap data JSON tersebut.
+
+2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+Cookies adalah mekanisme penyimpanan data di sisi klien yang digunakan oleh protokol HTTP untuk melacak status sesi dan informasi pengguna lainnya antara permintaan. Mereka dapat digunakan untuk menyimpan informasi di perangkat klien dan mengirimkannya kembali ke server bersama dengan setiap permintaan.
+
+Jika ada informasi atau status sesi yang perlu disimpan dan diteruskan antar halaman atau komponen aplikasi, menggunakan objek CookieRequest yang dibagikan dapat membantu memastikan bahwa informasi ini dapat diakses dan diperbarui secara konsisten di seluruh aplikasi.
+
+Sehingga CookieRequest perlu dibagikan kepada semua komponen aplikasi Flutter.
+
+3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+
+Pada dasarnya, mekanisme pengambilan data dari JSON hingga ditampilkan di aplikasi Flutter melibatkan beberapa langkah dasar, yaitu:
+
+Mendapatkan Data JSON:
+Pertama, perlu mendapatkan data JSON dari sumbernya. Ini bisa berupa API endpoint, file JSON lokal, atau sumber data lainnya
+
+Parsing Data JSON:
+Setelah mendapatkan data JSON, langkah berikutnya adalah mengurai (parsing) data tersebut. Parsing adalah proses mengubah representasi teks JSON menjadi struktur data yang dapat digunakan dalam Flutter. 
+
+Membuat Model Data:
+Sebaiknya, Anda membuat model Dart yang sesuai dengan struktur data yang diambil dari JSON. Model ini membantu mengorganisasi data dan membuat kode lebih mudah dipahami. 
+
+Menggunakan Model dalam Flutter Widget:
+Setelah parsing dan membuat model, Anda dapat menggunakan model tersebut dalam widget Flutter untuk menampilkan data
+
+Menggunakan Widget dalam Aplikasi:
+Terakhir, Anda dapat menggunakan widget yang Anda buat di aplikasi Flutter Anda untuk menampilkan data
+
+4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Mekanisme autentikasi antara aplikasi Flutter dan server Django melibatkan beberapa langkah, dan umumnya menggunakan protokol autentikasi seperti JSON Web Token (JWT). Berikut adalah langkah-langkah umum yang dapat Anda ikuti:
+
+Pada Sisi Flutter (Aplikasi Klien):
+Input Data Akun:
+
+Pengguna memasukkan informasi akun seperti nama pengguna dan kata sandi pada antarmuka pengguna di aplikasi Flutter.
+Permintaan Autentikasi ke Django:
+
+Aplikasi Flutter mengirim permintaan HTTP ke server Django untuk mengotentikasi pengguna. Permintaan ini biasanya berisi informasi kredensial pengguna (misalnya, nama pengguna dan kata sandi) dalam payload permintaan.
+Menerima Token JWT:
+
+Jika informasi kredensial valid, server Django dapat menghasilkan dan mengirimkan token JWT ke aplikasi Flutter sebagai respons. Token ini berfungsi sebagai bukti bahwa pengguna telah diotentikasi.
+Pada Sisi Django (Server):
+Verifikasi Kredensial:
+
+Django mengambil informasi kredensial dari permintaan, memverifikasi kebenaran kredensial pengguna, dan, jika valid, melanjutkan ke langkah selanjutnya.
+Generasi Token JWT:
+
+Jika kredensial valid, server Django menghasilkan token JWT menggunakan informasi identitas pengguna (misalnya, ID pengguna) dan mengirimkannya sebagai respons.
+Mengirim Token JWT:
+
+Token JWT dikirimkan ke aplikasi Flutter sebagai bagian dari respons HTTP.
+Kembali ke Sisi Flutter (Aplikasi Klien):
+Penyimpanan Token:
+
+Aplikasi Flutter menyimpan token JWT yang diterima secara lokal, misalnya dalam penyimpanan aman atau penyimpanan sesi.
+Penggunaan Token untuk Permintaan Berikutnya:
+
+Setiap kali aplikasi Flutter melakukan permintaan ke server Django yang memerlukan otentikasi, token JWT disertakan dalam header permintaan untuk membuktikan otentikasi pengguna.
+Navigasi ke Menu:
+
+Jika otentikasi berhasil, aplikasi Flutter dapat menavigasi pengguna ke menu atau tampilan lain yang memerlukan otentikasi.
+
+
+5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+
+6.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+
+
+</details>
