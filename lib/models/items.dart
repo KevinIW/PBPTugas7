@@ -9,7 +9,7 @@ List<Item> itemFromJson(String str) => List<Item>.from(json.decode(str).map((x) 
 String itemToJson(List<Item> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Item {
-    Model model;
+    String model;
     int pk;
     Fields fields;
 
@@ -20,13 +20,13 @@ class Item {
     });
 
     factory Item.fromJson(Map<String, dynamic> json) => Item(
-        model: modelValues.map[json["model"]]!,
+        model: json["model"],
         pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "model": modelValues.reverse[model],
+        "model": model,
         "pk": pk,
         "fields": fields.toJson(),
     };
@@ -58,25 +58,4 @@ class Fields {
         "amount": amount,
         "description": description,
     };
-}
-
-enum Model {
-    // ignore: constant_identifier_names
-    MAIN_ITEM
-}
-
-final modelValues = EnumValues({
-    "main.item": Model.MAIN_ITEM
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        reverseMap = map.map((k, v) => MapEntry(v, k));
-        return reverseMap;
-    }
 }

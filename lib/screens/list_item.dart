@@ -17,7 +17,7 @@ class _ItemPageState extends State<ItemPage> {
 Future<List<Item>> fetchProduct() async {
     // url ini
     var url = Uri.parse(
-        'http://127.0.0.1:8000/json/');
+        'https://kevin-ignatius-tugas.pbp.cs.ui.ac.id/json/');
     var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
